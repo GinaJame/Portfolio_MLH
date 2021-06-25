@@ -266,8 +266,16 @@ fabric.properties
 # https://plugins.jetbrains.com/plugin/12206-codestream
 .idea/codestream.xml
 
+### VisualStudioCode ###
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+*.code-workspace
+
 ##flask.sqlite
-.flask.sqlite
+*.sqlite
 ### Python ###
 # Byte-compiled / optimized / DLL files
 
@@ -288,7 +296,7 @@ fabric.properties
 # Django stuff:
 
 # Flask stuff:
-flask.sqlite
+
 # Scrapy stuff:
 
 # Sphinx documentation
