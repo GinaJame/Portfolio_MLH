@@ -1,9 +1,10 @@
 from dotenv import load_dotenv
 from flask import Flask, render_template, jsonify, request
 import os
-import db 
+from . import db 
 from werkzeug.security import check_password_hash, generate_password_hash
-from db import get_db
+from app.db import get_db
+import time
 load_dotenv()
 app = Flask(__name__)
 app.config['DATABASE'] =os.path.join(os.getcwd(),'flask.sqlite')
@@ -51,14 +52,12 @@ def register():
             'SELECT id FROM user WHERE username = ?', (username,)
         ).fetchone() is not None:
             error = f"User {username} is already registered."
-
         if error is None:
             db.execute(
                 'INSERT INTO user (username, password) VALUES (?, ?)',
                 (username, generate_password_hash(password))
             )
             db.commit()
-            return f"User {username} created successfully"
             return render_template("login.html")
         else:
             return error, 418
