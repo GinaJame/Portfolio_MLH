@@ -1,6 +1,5 @@
 body{
     padding:5px ;
-    background-color: #D0D6B5;
     color: #641E9A;
     font-family: 'Noto Sans TC', sans-serif;
 }
@@ -40,6 +39,7 @@ input{
 .techContainer{
     display:flex;
     flex-direction:row;
+    flex-wrap: wrap;
 }
 .techContainer p{
     margin-right:25px;
