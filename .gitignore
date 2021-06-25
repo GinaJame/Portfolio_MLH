@@ -288,7 +288,7 @@ fabric.properties
 # Django stuff:
 
 # Flask stuff:
-
+flask.sqlite
 # Scrapy stuff:
 
 # Sphinx documentation
