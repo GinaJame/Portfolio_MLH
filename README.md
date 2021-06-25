@@ -18,8 +18,4 @@ If you want to test it locally or add some new features, run the below commands,
 pip install Flask
 Flask run
 ```
-## THIS IS US 
 
-1. Dakshina 
-      
-3. Gina 
