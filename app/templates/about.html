@@ -1,0 +1,26 @@
+{% extends "base.html" %} {% block content %}
+
+<div class="container">
+  <div class="aboutcontainer">
+    <div class="subcontainer">
+      <h1>About</h1>
+      <p>
+        I am studying B.S. Computer Science and Technology at the Instituto Tecnológico de Monterrey Campus Ciudad de México.
+        I am interested in cybersecurity, web development, production engineeering and
+        mobile development. My passion is to learn new things and in my free time I like to play the violin, read,
+        watch Netflix and hanging out with my friends.
+      </p>
+    </div>
+    <div class="subcontainer">
+      <h3>Conect with me!</h3>
+        <a class="nav-link active" aria-current="page" href="https://github.com/GinaJame">Github</a>
+        <a class="nav-link active" aria-current="page" href="https://www.linkedin.com/in/georginagamez2a58861b5/">Linkedin</a>
+        <a class="nav-link active" aria-current="page" href="https://www.instagram.com/geor.ginagam/">Instagram</a>
+        <a class="nav-link active" aria-current="page" href="https://twitter.com/Gina42879801">Twitter</a>
+    </div>
+  </div>
+  
+  <img src="{{ url_for('static', filename='images/geeb.JPG')}}" width="500" />
+</div>
+
+{% endblock %}

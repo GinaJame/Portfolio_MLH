@@ -29,28 +29,35 @@ h1 {
     color: purple;
     font-size: 1500%;
     max-height:300px;
-    width: 100%;
+    align-self: flex-end;
+    
 }
 
 h2 {
   color: purple;
   font-size: 45px;
-  width: 100%;
+  width: 90%;
   padding-top: 200px;
 }
 
-.about-container {
+.aboutcontainer {
   color: purple;
   font-size: 20px;
   padding-top: 40px;
   margin-left: 10px;
+  display: flex;
+  flex-direction: column;
 }
-.container{
+
+.container, .containerColumn{
     display: flex;
     flex-direction: row;
     margin-top: 25px;
     width:100%;
     height: 100%;
+}
+.containerColumn{
+  flex-direction: column;
 }
 .subcontainer{
   display: flex;
@@ -63,6 +70,13 @@ h2 {
   max-width:300px;
 }
 
+a{
+  color: #641E9A;
+  font-style: italic;
+}
+ul{
+  color:black;
+} 
 
 @media only screen and (max-width:900px) {
   .index-container {
