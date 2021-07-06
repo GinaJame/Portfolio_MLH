@@ -302,7 +302,7 @@ fabric.properties
 # Sphinx documentation
 
 # PyBuilder
-
+docker-compose.yml
 # Jupyter Notebook
 
 # IPython
@@ -343,6 +343,6 @@ fabric.properties
 # thumbnail cache on Windows
 
 # profiling data
-
+*.sh
 
 # End of https://www.toptal.com/developers/gitignore/api/python,pycharm,flask
