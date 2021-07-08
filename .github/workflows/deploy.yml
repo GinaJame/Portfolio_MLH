@@ -11,7 +11,6 @@ jobs:
     name: "Deploy to AWS EC2 Virtual Machine"
     runs-on: ubuntu-latest
     steps:
-      uses: actions/checkout@v2
       - name: Configure SSH
         run: |
           mkdir -p ~/.ssh/
@@ -31,6 +30,8 @@ jobs:
         
       - name: Deploy site
         run: ssh my-vm 'cd ${{ secrets.PROJECT_ROOT }} && git fetch && git reset --hard origin/master && docker-compose down && docker-compose up -d --build && echo $(docker-compose ps) && curl -s -X POST "${{ secrets.DISCORD_WEBHOOK }}" -d "content=🚀 Deployment Successful"  '
+      - name: change uses
+        uses: actions/checkout@v2
       - name: Test endpoints
         shell: bash
         run: ./prod-test.sh
