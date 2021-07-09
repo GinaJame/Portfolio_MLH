@@ -19,9 +19,15 @@ jobs:
         uses: actions/setup-python@v1
         with:
           python-version: 3.9
+      - name: Set up Python failed
+        if: ${{ failure() }}
+        run:  curl -s -X POST "${{ secrets.DISCORD_WEBHOOK }}" -d "content=  SET UP PYTHON ERROR"
 
       - name: Install Python dependencies
         run: pip install black flake8
+      - name: Install Python failed
+        if: ${{ failure() }}
+        run:  curl -s -X POST "${{ secrets.DISCORD_WEBHOOK }}" -d "content=  INSTALL PYTHON ERROR"
 
       - name: Run linters
         uses: wearerequired/lint-action@v1.10.0
@@ -29,5 +35,8 @@ jobs:
           black: true
           flake8: true
           flake8_args: "--exclude=python3-virtualenv/,migrations"
+      - name: Format failed
+        if: ${{ failure() }}
+        run:  curl -s -X POST "${{ secrets.DISCORD_WEBHOOK }}" -d "content=  FORMAT ERROR"
 
         
