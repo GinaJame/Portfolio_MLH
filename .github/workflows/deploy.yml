@@ -43,7 +43,9 @@ jobs:
         
       - name: Test endpoints
         shell: bash
-        run: ./prod-test.sh
+        run: |
+          chmod +x ./prod-test.sh
+          ./prod-test.sh
         
       - name: Endpoint failed
         if: ${{ failure() }}
