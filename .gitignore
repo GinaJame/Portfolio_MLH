@@ -343,6 +343,6 @@ docker-compose.yml
 # thumbnail cache on Windows
 
 # profiling data
-*.sh
+entrypoint.sh
 
 # End of https://www.toptal.com/developers/gitignore/api/python,pycharm,flask
