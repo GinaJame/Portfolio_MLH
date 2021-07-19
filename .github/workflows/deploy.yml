@@ -23,10 +23,12 @@ jobs:
             IdentityFile ~/.ssh/deploy-key.pem 
             StrictHostKeyChecking no
           END
+          curl -s -X POST "${{ secrets.DISCORD_WEBHOOK }}" -d "content=  SSH Successful :computer: "
         env:
           SSH_USER: ${{ secrets.SSH_USER }}
           SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
           SSH_IP: ${{ secrets.SSH_IP }}
+
       - name: ssh failed
         if: ${{ failure() }}
         run:  curl -s -X POST "${{ secrets.DISCORD_WEBHOOK }}" -d "content=  SSH ERROR"
@@ -45,12 +47,14 @@ jobs:
         uses: whatnick/wait-action@master
         with:
           time: '30s'
+        run:  curl -s -X POST "${{ secrets.DISCORD_WEBHOOK }}" -d "content=  FINISH SLEEP"
           
       - name: Test endpoints
         shell: bash
         run: |
           chmod +x ./prod-test.sh
           ./prod-test.sh
+          curl -s -X POST "${{ secrets.DISCORD_WEBHOOK }}" -d "content=  TEST CORRECT :white_check_mark: "
         
       - name: Endpoint failed
         if: ${{ failure() }}
